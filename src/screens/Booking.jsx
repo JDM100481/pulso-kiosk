@@ -18,7 +18,7 @@ export default function Booking({ nav, params }) {
           <div className="ic" style={{ width: 72, height: 72, borderRadius: 20, background: 'var(--brass-soft)', color: 'var(--brass-dk)', display: 'grid', placeItems: 'center', margin: '0 auto 14px' }}>{Icon.calendar(34)}</div>
           <h2 style={{ fontFamily: 'var(--display)', margin: '0 0 6px' }}>Booking confirmed</h2>
           <p className="meta">{f.name || 'Guest'} · {f.date} at {f.time}<br />{f.service} with {f.barber}</p>
-          <div className="note" style={{ marginTop: 16, textAlign: 'left' }}>Future: send a myCHAT booking reminder automatically.</div>
+          <div className="note" style={{ marginTop: 16, textAlign: 'left' }}>myCHAT will send an automatic booking reminder and confirmation.</div>
           <div className="row" style={{ justifyContent: 'center', marginTop: 20 }}>
             <button className="btn primary lg" onClick={nav.home}>Done</button>
             <button className="btn ghost lg" onClick={() => setDone(false)}>Book another</button>

@@ -26,7 +26,7 @@ export default function QRCheckIn({ nav }) {
   return (
     <main className="screen">
       <div className="screen-head">
-        <h1>Digital ID QR Check-In</h1>
+        <h1>DigizenID QR Check-In</h1>
         <p>Point the member’s Digizen ID or PULSO QR at the camera. No camera? Enter the code manually.</p>
       </div>
 
@@ -41,19 +41,19 @@ export default function QRCheckIn({ nav }) {
               <button className="btn brass" onClick={() => resolve('PULSO-0001')}>{Icon.qr(20)} Simulate Digizen Scan</button>
             </div>
             <p className="note" style={{ marginTop: 16 }}>
-              <b>MVP note:</b> live QR decoding is stubbed. “Simulate Digizen Scan” loads a demo member.
+              <b>MVP note:</b> live QR decoding is stubbed. “Simulate Digizen Scan” loads a demo DigizenID profile.
               Add a decoder (e.g. <code>jsQR</code>) on the camera frame for production.
             </p>
           </div>
 
           <div className="card pad-lg">
             <h3 className="card-title">Manual code entry</h3>
-            <p className="card-sub">Type a member ID such as <b>PULSO-0001</b>.</p>
+            <p className="card-sub">Type a DigizenID code such as <b>PULSO-0001</b>.</p>
             <div className="field">
-              <label>Member / QR code</label>
+              <label>DigizenID / QR code</label>
               <input value={code} onChange={(e) => setCode(e.target.value)} placeholder="PULSO-0001" />
             </div>
-            <button className="btn primary block lg" disabled={!code.trim()} onClick={() => resolve(code)}>Look up member</button>
+            <button className="btn primary block lg" disabled={!code.trim()} onClick={() => resolve(code)}>Look up DigizenID</button>
           </div>
         </div>
       ) : (

@@ -24,7 +24,7 @@ function Picker({ nav, onPick }) {
   const waiting = activeQueue()
   return (
     <main className="screen">
-      <div className="screen-head"><h1>Barber Assistant</h1><p>Pick a customer in the chair, or pull the next from the queue.</p></div>
+      <div className="screen-head"><h1>Barber Assistant</h1><p>Magic Mirror session — pick a customer or pull the next from the queue.</p></div>
       {waiting.length === 0 ? <div className="card"><Empty title="No one in the queue" sub="Check a customer in to start a session." /></div> : (
         <div className="grid auto">
           {waiting.map((q) => (
@@ -101,7 +101,7 @@ function Session({ nav, session, repeatStyle }) {
 
           {next && (
             <div className="card pad-lg" style={{ background: 'linear-gradient(150deg,#1d2024,#0f1113)', color: '#f3efe7', border: 'none' }}>
-              <div className="row" style={{ color: 'var(--brass)' }}>{Icon.sparkle(20)}<span className="tag" style={{ color: 'var(--brass)' }}>AI Recommendation</span></div>
+              <div className="row" style={{ color: 'var(--brass)' }}>{Icon.sparkle(20)}<span className="tag" style={{ color: 'var(--brass)' }}>Magic Mirror</span></div>
               <p style={{ margin: '10px 0 0', fontWeight: 600 }}>{next.schedule}</p>
               <ul style={{ margin: '10px 0 0', paddingLeft: 18, lineHeight: 1.7, color: 'rgba(243,239,231,.85)' }}>{next.refinements.slice(0, 2).map((r, i) => <li key={i}>{r}</li>)}</ul>
             </div>

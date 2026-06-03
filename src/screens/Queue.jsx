@@ -18,7 +18,7 @@ export default function Queue({ nav }) {
         <button className="btn ghost" onClick={() => nav.go('manual')}>{Icon.user(18)} Add walk-in</button>
       </div>
 
-      {list.length === 0 ? <div className="card"><Empty title="Queue is empty" sub="Check in a customer to get started." /></div> : (
+      {list.length === 0 ? <div className="card"><Empty title="Queue is empty" sub="Check in a customer via DigizenID to get started." /></div> : (
         <div className="stack">
           {list.map((q) => (
             <div className="card" key={q.id}>

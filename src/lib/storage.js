@@ -154,9 +154,14 @@ export function seed() {
   ])
 
   freedomWallMessages.set([
-    { id: uid('fw'), createdAt: nowISO(), text: 'Best fade in the city. Salamat Kuya Ron! 💈', author: 'Juan', anonymous: false, approved: true },
-    { id: uid('fw'), createdAt: nowISO(), text: 'Sobrang relax ng tambayan dito. Solid service.', author: null, anonymous: true, approved: true },
-    { id: uid('fw'), createdAt: nowISO(), text: 'First time mag-pa-gupit, balik ako for sure.', author: 'Marielle', anonymous: false, approved: true },
+    { id: uid('fw'), createdAt: nowISO(), text: 'Best fade in the city. Salamat Kuya Ron! 💈', author: 'Juan', anonymous: false, approved: true, topic: 'Gratitude', promptQuestion: 'What gives you hope?' },
+    { id: uid('fw'), createdAt: nowISO(), text: 'Sobrang relax ng tambayan dito. Solid service.', author: null, anonymous: true, approved: true, topic: 'Community', promptQuestion: 'How is your community doing?' },
+    { id: uid('fw'), createdAt: nowISO(), text: 'First time mag-pa-gupit, balik ako for sure.', author: 'Marielle', anonymous: false, approved: true, topic: 'Gratitude', promptQuestion: 'What gives you hope?' },
+    { id: uid('fw'), createdAt: nowISO(), text: 'Sana mas maraming trabaho para sa kabataan dito.', author: null, anonymous: true, approved: true, topic: 'Employment', promptQuestion: 'What concerns you most today?' },
+    { id: uid('fw'), createdAt: nowISO(), text: 'Mahal na lahat pero kaya naman. Diskarte lang.', author: null, anonymous: true, approved: true, topic: 'Cost of Living', promptQuestion: 'What concerns you most today?' },
+    { id: uid('fw'), createdAt: nowISO(), text: 'Ang galing ng barbers dito, parang pamilya na.', author: 'Dexter', anonymous: false, approved: true, topic: 'Community', promptQuestion: 'How is your community doing?' },
+    { id: uid('fw'), createdAt: nowISO(), text: 'Nagtayo ako ng small business this year. Laban lang!', author: null, anonymous: true, approved: true, topic: 'Personal Growth', promptQuestion: 'What gives you hope?' },
+    { id: uid('fw'), createdAt: nowISO(), text: 'Sana mas mabilis yung internet sa area namin.', author: null, anonymous: true, approved: true, topic: 'Public Services', promptQuestion: 'What would you change in your barangay?' },
   ])
 
   faceProfiles.set([

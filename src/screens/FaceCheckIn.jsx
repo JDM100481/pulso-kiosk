@@ -36,8 +36,8 @@ export default function FaceCheckIn({ nav }) {
   return (
     <main className="screen">
       <div className="screen-head">
-        <h1>Face Recognition Check-In</h1>
-        <p>Look at the camera for instant check-in. <b className="tag">MVP / Demo</b> — uses local demo matching, not real biometrics.</p>
+        <h1>Face Recognition · Magic Mirror</h1>
+        <p>Look at the camera for instant check-in. <b className="tag">MVP / Demo</b> — uses local demo matching. Production: Magic Mirror biometric SDK..</p>
       </div>
 
       {!result ? (
@@ -54,7 +54,7 @@ export default function FaceCheckIn({ nav }) {
                   </>}
             </div>
             <p className="note" style={{ marginTop: 16 }}>
-              <b>Production placeholder:</b> swap the demo match for face-api.js or a biometric SDK
+              <b>Magic Mirror integration:</b> swap the demo match for face-api.js or a biometric SDK
               that returns a descriptor + distance. Face images stay in localStorage only in this build.
             </p>
           </div>

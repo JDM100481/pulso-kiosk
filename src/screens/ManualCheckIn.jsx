@@ -35,7 +35,7 @@ export default function ManualCheckIn({ nav }) {
 
   return (
     <main className="screen">
-      <div className="screen-head"><h1>Manual Check-In</h1><p>For walk-ins or members without their QR. We’ll add them to today’s queue.</p></div>
+      <div className="screen-head"><h1>Manual Check-In</h1><p>For walk-ins or customers without a DigizenID. We’ll add them to today’s queue.</p></div>
       <div className="card pad-lg" style={{ maxWidth: 720, margin: '0 auto' }}>
         <div className="grid cols-2">
           <Field label="Customer name"><input value={f.name} onChange={set('name')} placeholder="Full name" /></Field>

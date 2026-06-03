@@ -17,6 +17,7 @@ export const Icon = {
   back: (s = 24) => (<svg width={s} height={s} viewBox="0 0 24 24" {...P}><path d="M15 18l-6-6 6-6"/></svg>),
   repeat: (s = 24) => (<svg width={s} height={s} viewBox="0 0 24 24" {...P}><path d="M17 2l4 4-4 4M3 11V9a4 4 0 0 1 4-4h14M7 22l-4-4 4-4M21 13v2a4 4 0 0 1-4 4H3"/></svg>),
   sparkle: (s = 24) => (<svg width={s} height={s} viewBox="0 0 24 24" {...P}><path d="M12 3l1.8 4.7L18.5 9l-4.7 1.8L12 15l-1.8-4.7L5.5 9l4.7-1.3z"/><path d="M19 14l.7 1.8L21.5 16l-1.8.7L19 18l-.7-1.8L16.5 16l1.8-.5z"/></svg>),
+  sim: (s = 24) => (<svg width={s} height={s} viewBox="0 0 24 24" {...P}><path d="M5 4a2 2 0 0 1 2-2h6l6 6v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2z"/><path d="M9 13h6v6H9z"/><path d="M12 13v6M9 16h6"/></svg>),
 }
 
 /* ---------- Field ---------- */

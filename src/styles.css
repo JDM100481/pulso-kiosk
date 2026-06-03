@@ -18,6 +18,8 @@
   --brass:     #b88a3e;         /* primary accent */
   --brass-dk:  #9a7230;
   --brass-soft:#f0e4cf;
+  --logo-red:  #d6342a;         /* logo heartbeat — left blade  */
+  --logo-blue: #2563c9;         /* logo heartbeat — right blade */
   --green:     #3f8f6b;
   --amber:     #c2871f;
   --slate:     #5b6b7a;
@@ -84,17 +86,30 @@ input, textarea, select { user-select: text; }
 .topbar .crumb span { color: var(--muted); font-size: .82rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; }
 .topbar .spacer { flex: 1; }
 
-/* Wordmark */
-.wordmark { display: flex; align-items: center; gap: 12px; }
-.wordmark .mark {
-  width: 46px; height: 46px; border-radius: 13px;
-  background: linear-gradient(145deg, #1f2226, #0e0f11);
-  color: var(--brass); display: grid; place-items: center;
-  font-family: var(--display); font-weight: 700; font-size: 1.5rem;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.08), var(--shadow-sm);
+/* Logo lockup */
+.logo-mark { display: block; }
+.logo-row { display: flex; align-items: center; gap: 12px; }
+.logo-row .logo-text { display: flex; flex-direction: column; line-height: 1; }
+.logo-stacked { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+
+.logo-word {
+  font-family: var(--body); font-weight: 800; color: var(--ink);
+  text-transform: uppercase; letter-spacing: .42em; text-indent: .42em;
+  font-size: clamp(2.1rem, 5.5vw, 3.4rem);
 }
-.wordmark .name { font-family: var(--display); font-weight: 600; font-size: 1.45rem; letter-spacing: 3px; }
-.wordmark .name small { display:block; font-family: var(--body); font-weight: 700; font-size:.58rem; letter-spacing: 4px; color: var(--muted); text-transform: uppercase; }
+.logo-word.sm { font-size: 1.4rem; letter-spacing: .28em; text-indent: .28em; }
+
+.logo-sub {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--body); font-weight: 700; color: var(--ink-soft);
+  text-transform: uppercase; letter-spacing: .34em; text-indent: .34em;
+  font-size: clamp(.7rem, 1.6vw, .92rem); margin-top: 6px;
+}
+.logo-sub.sm { font-size: .56rem; letter-spacing: .22em; text-indent: .22em; gap: 7px; margin-top: 3px; color: var(--muted); }
+.logo-dash { display: inline-block; width: clamp(26px, 6vw, 54px); height: 3px; border-radius: 2px; }
+.logo-sub.sm .logo-dash { width: 14px; height: 2px; }
+.logo-dash.red  { background: var(--logo-red); }
+.logo-dash.blue { background: var(--logo-blue); }
 
 /* ---------- Layout ---------- */
 .screen { flex: 1; padding: clamp(18px, 3vw, 44px); max-width: 1280px; width: 100%; margin: 0 auto; }
@@ -266,3 +281,74 @@ input, textarea, select { user-select: text; }
 /* Fully Kiosk: prevent text selection callouts, smooth scrolling */
 * { -webkit-touch-callout: none; }
 .screen { -webkit-overflow-scrolling: touch; }
+
+/* ---------- Standby / screensaver ---------- */
+.standby {
+  position: fixed; inset: 0; z-index: 200;
+  background: #000; overflow: hidden; cursor: pointer;
+}
+.standby-slide {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  animation: kenburns var(--kb-dur, 8s) ease-in-out forwards;
+  will-change: transform;
+}
+.standby-slide.next { opacity: 0; transition: opacity 1.2s ease; }
+.standby-slide.next.visible { opacity: 1; }
+.standby-slide.active { z-index: 1; }
+.standby-slide.next { z-index: 2; }
+
+@keyframes kenburns {
+  0%   { transform: var(--kb-from, scale(1)); }
+  100% { transform: var(--kb-to, scale(1.15) translate(-2%,-2%)); }
+}
+
+.standby-overlay {
+  position: absolute; inset: 0; z-index: 3;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,.45) 0%, transparent 35%),
+    linear-gradient(to top,    rgba(0,0,0,.6)  0%, transparent 40%);
+}
+.standby-ui {
+  position: absolute; inset: 0; z-index: 4;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: flex-end;
+  padding: 0 24px 7vh;
+  color: #fff; text-align: center;
+  font-family: var(--body);
+}
+.standby-time {
+  font-size: clamp(4rem, 12vw, 8rem); font-weight: 800;
+  letter-spacing: .04em; line-height: 1;
+  text-shadow: 0 2px 28px rgba(0,0,0,.5);
+}
+.standby-date {
+  font-size: clamp(.9rem, 2.2vw, 1.3rem); font-weight: 600;
+  letter-spacing: .12em; text-transform: uppercase;
+  opacity: .85; margin-top: 4px;
+  text-shadow: 0 1px 12px rgba(0,0,0,.4);
+}
+.standby-brand {
+  display: flex; align-items: center; gap: 12px;
+  margin-top: 28px;
+  font-family: var(--body); font-weight: 800;
+  font-size: 1.4rem; letter-spacing: .24em; text-transform: uppercase;
+  text-shadow: 0 1px 12px rgba(0,0,0,.4);
+}
+.standby-brand small {
+  display: block; font-weight: 700; font-size: .55rem;
+  letter-spacing: .2em; opacity: .8; margin-top: 2px;
+}
+.standby-brand .logo-mark { filter: brightness(0) invert(1); }
+
+.standby-cta {
+  margin-top: 24px;
+  font-size: clamp(.78rem, 1.6vw, 1rem);
+  font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+  opacity: .7;
+  animation: pulse-cta 2.4s ease-in-out infinite;
+}
+@keyframes pulse-cta {
+  0%, 100% { opacity: .4; }
+  50%      { opacity: .9; }
+}

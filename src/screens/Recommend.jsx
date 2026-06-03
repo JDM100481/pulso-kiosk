@@ -21,8 +21,8 @@ export default function Recommend({ nav }) {
   return (
     <main className="screen">
       <div className="screen-head">
-        <h1>Hairstyle Recommendation</h1>
-        <p>Answer a few questions for a suggested cut. <b className="tag">MVP / Demo</b> — rule-based, not real AI yet.</p>
+        <h1>Magic Mirror · Style Assistant</h1>
+        <p>The Magic Mirror analyzes your profile for a personalized recommendation. <b className="tag">MVP / Demo</b> — rule-based, not real AI yet.</p>
       </div>
 
       <div className="grid cols-2">
@@ -45,7 +45,7 @@ export default function Recommend({ nav }) {
                 ? <button className="btn soft" onClick={cam.start}>{Icon.camera(20)} Start Camera</button>
                 : <><button className="btn brass" onClick={analyze}>{Icon.face(20)} Analyze Face</button><button className="btn ghost" onClick={cam.stop}>Stop</button></>}
             </div>
-            <p className="note" style={{ marginTop: 14 }}><b>Future:</b> real face-shape detection + AI styling via OpenAI / Claude / Gemini.</p>
+            <p className="note" style={{ marginTop: 14 }}><b>Future:</b> Magic Mirror AI-assisted face analysis for personalized recommendations.</p>
           </div>
 
           {result && (
